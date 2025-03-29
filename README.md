@@ -35,3 +35,5 @@ To run the processes at the same time, use:
 ## Killing the Processes
 
 Once the consumer is done, use <code>CTRL + C</code> to end the consumer program. The producer will still be running in the background, so in order to stop the process you need to use <code>ps</code> to list all processes running. Once you find "producer," use the PID from <code>ps</code> to run <code>kill INSERT_PID</code>. 
+
+Additionally, you can run <code>make kill</code>, to kill both processes at once.

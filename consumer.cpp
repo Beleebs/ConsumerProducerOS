@@ -59,10 +59,11 @@ int main() {
     // For this example the loop will run until itemsConsumed = 10
 
     int itemsConsumed = 0;
+    const int maxItemsConsumed = 100;
     do {
         // Check if we have consumed 10 items
         // If we have, break
-        if (itemsConsumed >= 10) {
+        if (itemsConsumed >= maxItemsConsumed) {
             break; 
         }
         // itemsConsumed < 10, continue consuming
@@ -83,14 +84,11 @@ int main() {
             } 
             // If there are no items in the buffer, the consumer will wait until next time
             else {
-                std::cout << "Nothing to Consume!" << std::endl;
+                // std::cout << "Nothing to Consume!" << std::endl;
             }
 
             // Release the semaphore
             sem_post(semaphore);
-
-            // Sleep for a short time to simulate processing time so that we aren't going at the speed of light
-            std::this_thread::sleep_for(std::chrono::milliseconds(500));
         }
     } while (true); 
     std::cout << "Done Consuming." << std::endl;

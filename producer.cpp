@@ -69,11 +69,9 @@ int main() {
         if (shared_buffer->bufferAmount < 2) {
             // Adds the item to the buffer
             // index is calculated by the current amount of items in the buffer
-            // for example, if bufferAmount = 0, we add it to index 0
-            // since there are only 2 spaces, if bufferAmount = 1, we add it to index 1
             shared_buffer->buffer[shared_buffer->bufferAmount] = item;
 
-            // Additionally, we can take the index it is inserted into and use that for the console output
+            // Gets location of the item being inserted
             int index = shared_buffer->bufferAmount;
 
             // Increments the buffer amount after adding the item
@@ -87,7 +85,6 @@ int main() {
 
         // Since its better for the producer to produce more items for the consumer, the wait is shorter.
         sem_post(semaphore);
-        std::this_thread::sleep_for(std::chrono::milliseconds(200));
 
     }
     while (true);

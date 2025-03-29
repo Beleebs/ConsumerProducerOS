@@ -15,5 +15,9 @@ producer: producer.cpp
 consumer: consumer.cpp
 	$(CXX) consumer.cpp $(CXXFLAGS) -o consumer
 
+kill: 
+	pkill -f producer
+	pkill -f consumer
+
 clean:
 	rm -f $(TARGETS)
